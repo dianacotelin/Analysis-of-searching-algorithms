@@ -1,0 +1,66 @@
+321CD Cotelin Maria-Diana
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Tema 1 AA ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~ 7. Algoritmi pentru procesarea sirurilor de caractere ~~~~~
+
+    Programul afiseaza cea mai lunga secventa comuna a 2 siruri, 
+    si numarul de aparitii ale unui sir in alt sir folosind Rabin-
+    Karp si KMP. Analizand timpii de executie am concluzionat ca mai
+    eficient este KMP, de aceea l-am folosit ca run-best. 
+
+    Format arhiva:
+    1. Director in - contine 30 de teste de input, 15 pentru prima
+    problema, 15 pentru a 2-a
+    2. Director out - contine rezultatul celor 30 de teste
+    3. algo.c - algoritmul Rabin-Karp, aplicarea lui si un main in
+    care se testeaza
+    4. algo2.c - algoritmul KMP, aplicarea lui si un main in care se
+    testeaza
+    4. algo.h - functiile folosite
+    5. checker.py - checkerul cu care am verificat formatul arhivei
+    6. Makefile cu reguli pentru build, run-best (KMP), run-p1 (algo)
+    run-p2 (algo2), clean
+
+    Functionalitate:
+        algo (Rabin Karp)
+    Functia RK verifica aparitia unui subsir in alt sir. RK2 face
+    acelasi lucru, numarand si de cate ori apare subsirul. Ambele
+    folosesc o metoda complexa de a crea un hash, utilizand un numar 
+    prim, pentru a evita coleziuni, sau cel putin a le diminiua. Apply_RK
+    se foloseste la prima problema si formeaza subsiruri in ordinea
+    descrescatoare a lungimii pana se gaseste unul care se afiseaza in
+    fisier, precum si lungimea lui. 
+        algo2 (KMP)
+    Functia computeLPSArray formeaza lps (longest proper prefix which is
+    also suffix). Functia KMP verifica aparitia subsirului. KMP2 face
+    acelasi lucru, dar numara de cate ori apare. Apply_KMP este aproape
+    identic cu apply_RK
+        Fiecare alforitm contine cate un main. Functiile main sunt identice.
+    In main se realizeaza testele pentru ambele probeleme. Fiecare fisier de
+    input are un numar pe prima linie reprezentand numarul problemei, 1 
+    pentru cea mai lunga secventa si 2 pentru numarul de aparitii. Am comentat
+    liniile pentru afisarea algoritmului folosit precum si a timpului in care 
+    s-a gasit solutia pentru a funtiona checkerul, dar sunt relevante pentru etapa
+    a 3-a cand le voi folosi.
+
+    Diferenta format cod si mentionari in etapa 1:
+    La problema 1 nu am folosit numarul care specifica lungimea maxima
+    a secventei, deoarece o sa analizez acest aspect in etapa a 3-a cand
+    voi compara timpul de executie in cazul in care se foloseste numarul cu
+    cazul in care nu se foloseste. In schimb am adaugat numarul care specifica
+    ce problema rezolv. Nu se mai afiseaza nici lungimea secventei.
+    Outputul nu afiseaza rezultatele pentru ambii algoritmi in acelasi 
+    timp, dar voi compara la etapa a 3-a timpul de executie pentru fiecare
+    test la fiecare algoritm.
+    La problema a 2-a am inversat liniile de input, astfel incat pe prima
+    line este textul si pe a 2-a pattern-ul.
+    Deoarece timpul de executie era foarte mic, am modificar marimea testelor,
+    testand si pentru siruri de pana la 400 de caractere.
+
+    Surse: 
+    Algoritmii au fost preluati de pe urmatoarele site-uri:
+    https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/ - KMP
+    https://www.geeksforgeeks.org/rabin-karp-algorithm-for-pattern-searching/ - RK
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
